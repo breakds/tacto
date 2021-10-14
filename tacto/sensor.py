@@ -15,8 +15,9 @@ import pybullet as p
 import trimesh
 from urdfpy import URDF
 
-from .renderer import Renderer
-
+from .renderer_mp import Renderer
+# from .renderer import Renderer
+from vr_env.utils.utils import timeit
 logger = logging.getLogger(__name__)
 
 
@@ -251,6 +252,7 @@ class Sensor:
         colors = [self.renderer._add_noise(color) for color in colors]
         return colors, depths
 
+    @timeit
     def render(self):
         """
         Render tacto images from each camera's view.
