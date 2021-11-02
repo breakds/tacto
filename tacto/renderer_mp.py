@@ -7,8 +7,6 @@ import multiprocessing
 from multiprocessing import Process, Queue
 from .renderer import Renderer as _Renderer
 logger = logging.getLogger(__name__)
-mpl = multiprocessing.log_to_stderr()
-mpl.setLevel(logging.INFO)
 
 
 def worker(parent_to_child_q, child_to_parent_q, width, height, background, config_path):
